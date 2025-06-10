@@ -59,32 +59,32 @@ function App() {
 
               <form onSubmit={handleLogin} className="text-start">
                 <div className="form-floating-label-group mb-3">
- <input
+                  <input
                     type="email"
                     className="form-control"
- id="floatingEmailInput"
+                    id="floatingEmailInput"
                     value={email}
- onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
- onFocus={handleInputFocus}
- onBlur={handleInputBlur}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                     placeholder="Correo Electrónico"
                   />
- <label htmlFor="floatingEmailInput">Correo Electrónico</label>
+                  <label htmlFor="floatingEmailInput">Correo Electrónico</label>
                 </div>
                 <div className="form-floating-label-group mb-3">
- <input
+                  <input
                     type="password"
                     className="form-control"
- id="floatingPasswordInput"
+                    id="floatingPasswordInput"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Contraseña"
- onFocus={handleInputFocus}
- onBlur={handleInputBlur}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                     required
                   />
- <label htmlFor="floatingPasswordInput">Contraseña</label>
+                  <label htmlFor="floatingPasswordInput">Contraseña</label>
                 </div>
                 <div className="row mb-4">
                   <div className="col d-flex justify-content-center">
@@ -100,7 +100,7 @@ function App() {
                 </div>
                 {/* Wrap the button in a div to control its width */}
                 <div className="form-floating-label-group mb-3"> {/* Use a similar container class for alignment */}
- <button type="submit" className="btn btn-primary btn-lg btn-block w-100">INICIAR SESIÓN</button> {/* Add w-100 for full width within its container */}
+                  <button type="submit" className="btn btn-primary btn-lg btn-block w-100">INICIAR SESIÓN</button> {/* Add w-100 for full width within its container */}
                 </div>
               </form>
             </div>
