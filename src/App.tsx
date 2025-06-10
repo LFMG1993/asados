@@ -2,22 +2,38 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { auth } from './firebase'; // Assuming auth is exported from firebase.ts
 
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState<{ content: string | null, type: 'success' | 'danger' | null }>(null);
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setMessage(null); // Clear previous messages
-
+  const handleLogin = async (event: React.FormEvent) => {
+    event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setMessage({ content: 'Inicio de sesión exitoso!', type: 'success' });
+      toast.success('Inicio de sesión exitoso!');
     } catch (error: any) {
-      setMessage({ content: error.message, type: 'danger' });
+      let userFriendlyMessage = 'Ocurrió un error al iniciar sesión. Inténtalo de nuevo.';
+
+      switch (error.code) {
+        case 'auth/invalid-email':
+          userFriendlyMessage = 'El formato del correo electrónico es inválido.';
+          break;
+        case 'auth/user-disabled':
+          userFriendlyMessage = 'Este usuario ha sido deshabilitado.';
+          break;
+        case 'auth/user-not-found':
+          userFriendlyMessage = 'No se encontró ningún usuario con este correo electrónico.';
+          break;
+        case 'auth/wrong-password':
+          userFriendlyMessage = 'La contraseña es incorrecta.';
+          break;
+        // Agrega más casos según sea necesario para otros errores de Firebase Auth
+      }
+      toast.error(userFriendlyMessage);
     }
   };
 
@@ -28,9 +44,7 @@ function App() {
           <div className="card shadow-lg login-card">
             <div className="card-body">
               <h3 className="card-title text-center mb-4">Iniciar Sesión</h3>
-              {message && (
-                <div className={`alert alert-${message.type}`} role="alert">{message.content}</div>
-              )}
+
               <form onSubmit={handleLogin}>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label visually-hidden">Correo Electrónico</label>
@@ -64,6 +78,7 @@ function App() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }
