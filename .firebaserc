@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "asados-fff53"
-  }
+    "default": "asados-fff53",
+    "asados": "asados-dedd8"
+  },
+  "targets": {},
+  "etags": {}
 }
