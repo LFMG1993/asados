@@ -1,22 +1,30 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth'; // Importa getAuth
+import { getAnalytics } from "firebase/analytics"; // Importa getAnalytics
 
-// TODO: Replace with your Firebase project's configuration
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID" // Optional: for Firebase Analytics
+ apiKey: "AIzaSyAR2pskltAbLga0-RXGV9iO4iv4xeLKTaI",
+ authDomain: "asados-dedd8.firebaseapp.com",
+ projectId: "asados-dedd8",
+ storageBucket: "asados-dedd8.firebasestorage.app",
+ messagingSenderId: "1055886905209",
+ appId: "1:1055886905209:web:ef89561c3104a8f7d769a8",
+ measurementId: "G-QTPYQHG84J" // Optional: for Firebase Analytics
 };
-
+ 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 // Initialize Firestore
 const db = getFirestore(app);
 
-// Export the initialized app
-export { app, db };
+// Initialize Firebase Authentication
+const auth = getAuth(app); // Inicializa Authentication
+// Initialize Firebase Analytics
+const analytics = getAnalytics(app); // Inicializa Analytics
+
+// Export the initialized app and services
+export { app, db, auth, analytics }; // Exporta 'auth' y 'analytics' junto con 'app' y 'db'

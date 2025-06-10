@@ -7,3 +7,24 @@ body {
     text-align: center;
     padding: 20px;
 }
+
+/* Estilos para el botón de inicio de sesión */
+.App .btn-primary {
+    background-color: #007bff; /* Color de fondo por defecto de Bootstrap primary */
+    border-color: #007bff; /* Color del borde por defecto */
+    color: white; /* Color del texto por defecto */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.App .btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón (un poco más oscuro) */
+    border-color: #004085; /* Color del borde al pasar el ratón */
+    transform: translateY(-2px); /* Ligeramente mover hacia arriba */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+/* Ajuste para el estado activo/focus si es necesario */
+.App .btn-primary:active,
+.App .btn-primary:focus {
+    outline: none;
+}

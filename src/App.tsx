@@ -1,34 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase'; // Assuming auth is exported from firebase.ts
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState<{ content: string | null, type: 'success' | 'danger' | null }>(null);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setMessage(null); // Clear previous messages
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      setMessage({ content: 'Inicio de sesión exitoso!', type: 'success' });
+    } catch (error: any) {
+      setMessage({ content: error.message, type: 'danger' });
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container d-flex justify-content-center align-items-center vh-100 login-container">
+      <div className="row w-100 justify-content-center">
+        <div className="col-12 col-sm-8 col-md-6 col-lg-4">
+          <div className="card shadow-lg login-card">
+            <div className="card-body">
+              <h3 className="card-title text-center mb-4">Iniciar Sesión</h3>
+              {message && (
+                <div className={`alert alert-${message.type}`} role="alert">{message.content}</div>
+              )}
+              <form onSubmit={handleLogin}>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label visually-hidden">Correo Electrónico</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="Correo Electrónico"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Contraseña</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Contraseña"
+                    required
+                  />
+                </div>
+                <div className="d-grid gap-2">
+                  <button type="submit" className="btn btn-primary">Iniciar Sesión</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
