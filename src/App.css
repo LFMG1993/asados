@@ -1,30 +1,141 @@
-body {
-    margin: 0;
-    padding: 0;
+/* Basic centering for the container */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa; /* Optional: light background */
 }
 
-.App {
-    text-align: center;
-    padding: 20px;
+/* Style for the card/container around the form */
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Max width for the form container */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    background-color: #fff;
 }
 
 /* Estilos para el botón de inicio de sesión */
 .App .btn-primary {
-    background-color: #007bff; /* Color de fondo por defecto de Bootstrap primary */
-    border-color: #007bff; /* Color del borde por defecto */
-    color: white; /* Color del texto por defecto */
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+  background-color: #007bff; /* Color de fondo por defecto de Bootstrap primary */
+  border-color: #007bff; /* Color del borde por defecto */
+  color: white; /* Color del texto por defecto */
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Transición suave */
 }
 
 .App .btn-primary:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el ratón (un poco más oscuro) */
-    border-color: #004085; /* Color del borde al pasar el ratón */
-    transform: translateY(-2px); /* Ligeramente mover hacia arriba */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  background-color: #0056b3; /* Color de fondo al pasar el ratón (un poco más oscuro) */
+  border-color: #0056b3; /* Mantener el color del borde */
+  /* No specific transform or box-shadow removal needed here, let the transition handle it */
 }
 
 /* Ajuste para el estado activo/focus si es necesario */
 .App .btn-primary:active,
 .App .btn-primary:focus {
-    outline: none;
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5); /* Standard Bootstrap focus ring */
+}
+/* Style for the container around the input and label for floating effect */
+
+.form-floating-label-group {
+  position: relative;
+  margin-bottom: 1.5rem; /* Spacing between groups */
+  /* Add overflow hidden to contain the floating label if needed */
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif; /* Apply font */
+  padding-top: 15px; /* Add padding top to make space for the floating label when it moves up */
+}
+.form-floating-label-group, .form-floating-label-group .btn-primary { box-sizing: border-box; }
+
+/* Base style for the input field */
+.form-floating-label-group input.form-control {
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem; /* Standard Bootstrap padding */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /* Disable default Bootstrap outline and box-shadow on focus */
+  outline: none !important;
+  box-shadow: none !important;
+ padding-left: 0.375rem; /* Reduced left padding */
+ padding-right: 0.75rem; /* Standard Bootstrap right padding */
+ padding-top: 0.375rem; /* Initial top padding */
+  padding-bottom: 0.375rem; /* Initial bottom padding */
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif; /* Apply font */
+}
+
+
+.form-floating-label-group input.form-control::placeholder {
+  color: #6c757d;
+  /* opacity: 1; */ /* Make placeholder visible by default - handled by default browser behavior */
+  transition: opacity 0.2s ease-out; /* Smooth transition for placeholder */
+}
+
+/* Base style for the label, hidden by default */
+.form-floating-label-group label {
+  position: absolute;
+  pointer-events: none; /* Allow clicking through the label to the input */
+  top: 50%; /* Initial vertical position */
+ left: 0.75rem; /* Initial horizontal position, aligned with input padding */
+  transform: translateY(-50%); /* Vertically center the label */
+  color: #6c757d; /* Match initial color with placeholder */
+  transition: all 0.2s ease-out; /* Smooth transition for movement and styling */
+ /* Hide the label completely in the initial state */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Floating label effect when is-floating class is present */
+ /* .form-floating-label-group.is-floating input.form-control + label { */ /* Alternative selector */
+ .form-floating-label-group.is-floating label { /* This selector works with the JS logic */
+  font-size: 0.8em; /* Adjusted font size slightly */
+ transform: translateY(-220%); /* Adjusted vertical position slightly higher */
+  opacity: 1; /* Make label visible */
+  visibility: visible;
+  color: #007bff; /* Change color when floating */
+  /* Ensure the left alignment is maintained */
+  left: 0.75rem;
+}
+
+ .form-floating-label-group.is-floating label {
+ /* Reverted changes for background and padding */
+ background-color: transparent;
+ padding: 0;
+ }
+/* Pseudo-element for the connecting line */
+.form-floating-label-group.is-floating label::before {
+    content: "";
+    display: inline-block; /* Make it an inline-block to follow the text flow */
+}
+.form-floating-label-group.is-floating label::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Align vertically with the bottom of the label */
+  left: 100%; /* Start the line at the end of the label text */
+  width: 15px; /* Adjust width as needed to connect to the border */
+  height: 1px;
+  background-color: #007bff; /* Color of the connecting line */ /* Optional: Add a slight curve if needed, but a straight line seems intended from the reference */
+  /* No transform here to avoid conflict with label's transform */
+}
+.form-floating-label-group .btn-primary {
+    padding: 0 !important; /* Remove padding */
+}
+
+/* Custom focus style for the input field */
+/* Apply subtle blue border and box-shadow on focus */
+.form-floating-label-group input.form-control:focus {
+    border-color: #80bdff; /* Light blue border color on focus, similar to Bootstrap's focus color */
+  /* Optional: Add a subtle box-shadow on focus */
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Light blue box-shadow */\
+}
+
+/* Hide the placeholder when the container is floating */
+.form-floating-label-group.is-floating input.form-control::placeholder {
+  opacity: 0 !important; /* Use !important to ensure override if needed */
+}
+
+/* Apply font to other form elements */
+.form-check-label,
+.text-decoration-none {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif; /* Apply font */
 }
