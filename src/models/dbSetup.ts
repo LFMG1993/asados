@@ -1,4 +1,4 @@
-import { db } from './firestore';
+import { db } from "../firebase";
 
 const setupDatabase = async () => {
   console.log('Verificando y configurando base de datos...');
