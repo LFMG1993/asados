@@ -126,7 +126,7 @@
 .form-floating-label-group input.form-control:focus {
     border-color: #80bdff; /* Light blue border color on focus, similar to Bootstrap's focus color */
   /* Optional: Add a subtle box-shadow on focus */
-  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Light blue box-shadow */\
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Light blue box-shadow */
 }
 
 /* Hide the placeholder when the container is floating */
