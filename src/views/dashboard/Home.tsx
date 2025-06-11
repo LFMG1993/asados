@@ -65,124 +65,123 @@ export function Home() {
             <SliderBar />
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="h2">لوحة القيادة</h1>
+                    <h1 className="h2">Dashboard</h1>
                     <div className="btn-toolbar mb-2 mb-md-0">
                         <div className="btn-group me-2">
-                            <button type="button" className="btn btn-sm btn-outline-secondary">مشاركة</button>
-                            <button type="button" className="btn btn-sm btn-outline-secondary">تصدير</button>
+                            <button type="button" className="btn btn-sm btn-outline-secondary">Compartir</button>
+                            <button type="button" className="btn btn-sm btn-outline-secondary">Exportar</button>
                         </div>
                         <button type="button" className="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
-                            هذا الأسبوع
+                            Esta semana
                         </button>
                     </div>
                 </div>
 
                 {/* <canvas className="my-4 w-100" id="myChart" width="900" height="380" ref={chartRef}></canvas> */}
 
-                <h2>عنوان القسم</h2>
-                <div className="table-responsive">
+                <h2>Título de la sección</h2>
+                <div className="table-responsive small">
                     <table className="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">عنوان</th>
-                                <th scope="col">عنوان</th>
-                                <th scope="col">عنوان</th>
-                                <th scope="col">عنوان</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Título</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1,001</td>
-                                <td>بيانات</td>
-                                <td>عشوائية</td>
-                                <td>تثري</td>
-                                <td>الجدول</td>
+                                <td>Datos</td>
+                                <td>Aleatorios</td>
+                                <td>Para</td>
+                                <td>Tabla</td>
                             </tr>
                             <tr>
                                 <td>1,002</td>
-                                <td>تثري</td>
-                                <td>مبهة</td>
-                                <td>تصميم</td>
-                                <td>تنسيق</td>
+                                <td>Para</td>
+                                <td>Ejemplo</td>
+                                <td>Diseño</td>
+                                <td>Formato</td>
                             </tr>
                             <tr>
                                 <td>1,003</td>
-                                <td>عشوائية</td>
-                                <td>غنية</td>
-                                <td>قيمة</td>
-                                <td>مفيدة</td>
+                                <td>Aleatorios</td>
+                                <td>Ricos</td>
+                                <td>Valor</td>
+                                <td>Útil</td>
                             </tr>
                             <tr>
                                 <td>1,003</td>
-                                <td>معلومات</td>
-                                <td>تثري</td>
-                                <td>توضيحية</td>
-                                <td>عشوائية</td>
+                                <td>Información</td>
+                                <td>Para</td>
+                                <td>Explicativa</td>
+                                <td>Aleatorios</td>
                             </tr>
                             <tr>
                                 <td>1,004</td>
-                                <td>الجدول</td>
-                                <td>بيانات</td>
-                                <td>تنسيق</td>
-                                <td>قيمة</td>
+                                <td>Datos</td>
+                                <td>Formato</td>
+                                <td>Valor</td>
                             </tr>
                             <tr>
                                 <td>1,005</td>
-                                <td>قيمة</td>
-                                <td>مبهة</td>
-                                <td>الجدول</td>
-                                <td>تثري</td>
+                                <td>Valor</td>
+                                <td>Claro</td>
+                                <td>Tabla</td>
+                                <td>Para</td>
                             </tr>
                             <tr>
                                 <td>1,006</td>
-                                <td>قيمة</td>
-                                <td>توضيحية</td>
-                                <td>غنية</td>
-                                <td>عشوائية</td>
+                                <td>Valor</td>
+                                <td>Explicativa</td>
+                                <td>Rica</td>
+                                <td>Aleatoria</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
-                                <td>تثري</td>
-                                <td>مفيدة</td>
-                                <td>معلومات</td>
-                                <td>مبهة</td>
+                                <td>Para</td>
+                                <td>Útil</td>
+                                <td>Información</td>
+                                <td>Clara</td>
                             </tr>
                             <tr>
                                 <td>1,008</td>
-                                <td>بيانات</td>
-                                <td>عشوائية</td>
-                                <td>تثري</td>
-                                <td>الجدول</td>
+                                <td>Datos</td>
+                                <td>Aleatorios</td>
+                                <td>Para</td>
+                                <td>Tabla</td>
                             </tr>
                             <tr>
                                 <td>1,009</td>
-                                <td>تثري</td>
-                                <td>مبهة</td>
-                                <td>تصميم</td>
-                                <td>تنسيق</td>
+                                <td>Para</td>
+                                <td>Clara</td>
+                                <td>Diseño</td>
+                                <td>Formato</td>
                             </tr>
                             <tr>
                                 <td>1,010</td>
-                                <td>عشوائية</td>
-                                <td>غنية</td>
-                                <td>قيمة</td>
-                                <td>مفيدة</td>
+                                <td>Aleatoria</td>
+                                <td>Rica</td>
+                                <td>Valor</td>
+                                <td>Útil</td>
                             </tr>
                             <tr>
                                 <td>1,011</td>
-                                <td>معلومات</td>
-                                <td>تثري</td>
-                                <td>توضيحية</td>
-                                <td>عشوائية</td>
+                                <td>Información</td>
+                                <td>Para</td>
+                                <td>Explicativa</td>
+                                <td>Aleatoria</td>
                             </tr>
                             <tr>
                                 <td>1,012</td>
-                                <td>الجدول</td>
-                                <td>تثري</td>
-                                <td>تنسيق</td>
-                                <td>قيمة</td>
+                                <td>Tabla</td>
+                                <td>Para</td>
+                                <td>Formato</td>
+                                <td>Valor</td>
                             </tr>
                             <tr>
                                 <td>1,013</td>
@@ -193,15 +192,15 @@ export function Home() {
                             </tr>
                             <tr>
                                 <td>1,014</td>
-                                <td>قيمة</td>
-                                <td>توضيحية</td>
-                                <td>غنية</td>
-                                <td>عشوائية</td>
+                                <td>Valor</td>
+                                <td>Explicativa</td>
+                                <td>Rica</td>
+                                <td>Aleatoria</td>
                             </tr>
                             <tr>
                                 <td>1,015</td>
-                                <td>بيانات</td>
-                                <td>مفيدة</td>
+                                <td>Datos</td>
+                                <td>Útil</td>
                                 <td>معلومات</td>
                                 <td>الجدول</td>
                             </tr>
