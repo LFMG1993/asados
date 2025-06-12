@@ -61,11 +61,11 @@ export function Home() {
     //     options: chartOptions, // Opciones para el gráfico
     // });
     return (
-        <>
-            <SliderBar />
-            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="h2">Dashboard</h1>
+        <SliderBar>
+            {/* Este contenido se renderizará dentro de la columna principal de SliderBar */}
+            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 className="h2">Dashboard</h1>
+                {/* Botones */}
                     <div className="btn-toolbar mb-2 mb-md-0">
                         <div className="btn-group me-2">
                             <button type="button" className="btn btn-sm btn-outline-secondary">Compartir</button>
@@ -76,8 +76,8 @@ export function Home() {
                             Esta semana
                         </button>
                     </div>
-                </div>
-
+            </div>
+            {/* Comentario del gráfico */}
                 {/* <canvas className="my-4 w-100" id="myChart" width="900" height="380" ref={chartRef}></canvas> */}
 
                 <h2>Título de la sección</h2>
@@ -207,8 +207,8 @@ export function Home() {
                         </tbody>
                     </table>
                 </div>
-            </main>
-        </>
+            {/* Fin del contenido que se pasa como children */}
+        </SliderBar>
     );
 }
 

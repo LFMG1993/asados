@@ -30,7 +30,7 @@ function Login() {
             toast.success('Inicio de sesión exitoso!', {
                 autoClose: 1500,
             });
-            nagivate('/Home')
+            nagivate('/Sales')
         } catch (error: any) {
             let userFriendlyMessage = 'Ocurrió un error al iniciar sesión. Inténtalo de nuevo.';
 

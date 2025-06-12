@@ -1,8 +1,15 @@
 import {useLogout} from "../../hooks/useLogout";
+import React from 'react'; // Importa React
 
-export function SliderBar() {
+// Define las props del componente, incluyendo children
+interface SliderBarProps {
+    children: React.ReactNode; // Define que puede recibir cualquier contenido de React como hijos
+}
+
+export function SliderBar({ children }: SliderBarProps) { // Destructura children de las props
+    console.log("SliderBar se está renderizando");
     const handleLogout = useLogout();
-    return (
+    return ( 
         <>
             <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                 <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Asados</a>
@@ -17,13 +24,14 @@ export function SliderBar() {
                 </div>
             </header>
 
+            {/* Contenedor principal con la fila y las columnas */}
             <div className="container-fluid">
-                <div className="row justify-content-end">
+                <div className="row"> {/* Elimina justify-content-end de la fila principal */}
                     <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                         <div className="position-sticky pt-3">
                             <ul className="nav flex-column">
                                 <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="#">
+                                    <a className="nav-link active" aria-current="page" href="/Home">
                                         <span data-feather="home"></span>
                                         Inicio
                                     </a>
@@ -94,6 +102,11 @@ export function SliderBar() {
                             </ul>
                         </div>
                     </nav>
+
+                    {/* Área para el contenido principal (donde se renderizarán los children) */}
+                    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                        {children} {/* Aquí se renderizará el contenido que le pases a SliderBar */}
+                    </main>
                 </div>
             </div>
         </>
