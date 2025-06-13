@@ -7,7 +7,6 @@ interface SliderBarProps {
 }
 
 export function SliderBar({ children }: SliderBarProps) { // Destructura children de las props
-    console.log("SliderBar se está renderizando");
     const handleLogout = useLogout();
     return ( 
         <>

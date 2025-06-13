@@ -1,6 +1,7 @@
 /* Basic centering for the container */
 .App {
   display: flex;
+  flex-direction: column; /* Stack content vertically by default */
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Full viewport height */
@@ -17,6 +18,18 @@
 
     background-color: #fff;
 }
+
+/* Media query for larger screens */
+@media (min-width: 768px) { /* Adjust breakpoint as needed for desktop */
+    .login-container {
+        width: auto; /* Allow width to be determined by max-width */
+        max-width: 100%; /* Keep a reasonable max width */
+        margin: 0 auto; /* Center the container horizontally */
+        /* Remove any styles that might be forcing vertical layout */
+        writing-mode: horizontal-tb; /* Ensure horizontal text */
+    }
+}
+
 
 /* Estilos para el botón de inicio de sesión */
 .App .btn-primary {
@@ -139,4 +152,10 @@
 .form-check-label,
 .text-decoration-none {
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif; /* Apply font */
+}
+
+/* Remove any vertical text orientation styles if they exist elsewhere */
+body, html, .login-container, h1, h2, h3, h4, h5, h6, p, span, label, button, input {
+    writing-mode: horizontal-tb !important; /* Ensure horizontal text orientation */
+    /* Remove any transforms that might rotate elements vertically */
 }

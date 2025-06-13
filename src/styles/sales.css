@@ -1,0 +1,138 @@
+/* Estilos para el menú lateral (asumiendo una clase .sidebar o similar) */
+/* Asegúrate de que este selector coincida con el elemento de tu barra lateral */
+.sidebar {
+ position: fixed; /* Fija la posición del menú con respecto a la ventana */
+ top: 0; /* Alinea el menú con la parte superior de la ventana */
+ left: 0; /* Alinea el menú con el lado izquierdo de la ventana */
+ width: 250px; /* Ancho fijo para el menú lateral - ajusta según sea necesario */
+ height: 100vh; /* Ocupa la altura completa de la ventana */
+ z-index: 1000; /* Asegura que el menú esté por encima de otros contenidos */
+ overflow-y: auto; /* Añade scroll si el contenido del menú excede la altura */
+}
+/* Estilos generales del contenedor de la vista de ventas */
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    /* Borde redondeado */
+    overflow: hidden;
+    /* Para bordes redondeados en la imagen si hay */
+}
+
+/* Estilos para el contenedor principal */
+.sales-container {
+ margin-left: 250px; /* Añade margen izquierdo al contenido principal igual al ancho del menú lateral fijo */
+ margin-top: 60px; /* Añade margen superior para evitar que el contenido se oculte detrás de un posible menú superior fijo */
+    display: flex; /* Usa flexbox para el diseño responsivo */
+    gap: 2rem;
+    flex-direction: column; /* Por defecto en columna para pantallas pequeñas */
+    width: 100%; /* Ancho completo por defecto */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Estilos para la lista de productos */
+.product-list-style {
+    width: 100%; /* Ancho completo por defecto */
+    overflow-y: auto;
+    display: flex; /* Usa flexbox para las tarjetas dentro de la lista */ /* Altura que ocupa el espacio disponible en pantallas grandes */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centrar tarjetas en pantallas pequeñas */
+    align-content: flex-start; /* Alinear contenido al inicio para que no se expanda verticalmente */
+
+    /* Ajustes para tarjetas en pantallas medianas */
+    @media (min-width: 768px) {
+        .card {
+            width: calc(33.333% - 14px); /* Ajuste para 3 tarjetas por fila en pantallas medianas */
+        }
+    }
+}
+
+/* Estilo para la tarjeta de la vista de venta */
+/* Nota: Ajustamos la altura para acoplarse al contenido */
+.sale-view-card {
+    width: 100%; /* Ancho completo por defecto */
+ padding: 1rem; /* Ajuste de padding interno */
+ flex-shrink: 0; /* Previene que la tarjeta de venta se encoja */
+}
+/* Media query para pantallas pequeñas (hasta 991.98px) */
+@media (max-width: 991.98px) {
+    .sales-container {
+        flex-direction: column; /* Asegura que se apilen */
+    }
+
+    .product-list-style {
+        width: 100%; /* Ancho completo */
+    }
+
+    .sale-view-card {
+        width: 100%; /* Ancho completo */
+        margin-top: 1rem; /* Añade margen superior cuando se apila */
+    }
+}
+
+/* Media query para pantallas grandes (992px y más) */
+@media (min-width: 992px) {
+    .sales-container {
+        flex-direction: row; /* Mostrar en fila */
+        align-items: flex-start; /* Alinea los elementos al inicio en el eje cruzado */
+    }
+
+    .product-list-style {
+        width: 65%; /* Ancho para la lista de productos */
+    }
+
+    .card {
+        width: calc(25% - 15px); /* Ajuste para 4 tarjetas por fila en pantallas grandes, considerando el gap */
+    }
+
+    .sale-view-card {
+        width: 30%; /* Ancho para la vista de venta */
+        margin: 0 0 0 2rem; /* Margen izquierdo para separarlo de la lista de productos */
+        height: fit-content; /* Permite que la altura se ajuste al contenido */
+        overflow-y: auto; /* Añadir scroll si el contenido excede la altura */
+        border-radius: 0.5rem; /* Borde redondeado */
+        border: 1px solid #ccc;
+    }
+
+    /* Estilos para la sección de la venta actual */
+    .current-sale-section {
+        flex-grow: 1; /* Permite que el contenido de la venta ocupe el espacio disponible */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        /* Espacio encima de la tabla */
+    }
+
+    th,
+    td {
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+
+    .sale-total-row {
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    /* Estilo para el contenedor del botón de finalizar venta */
+    .finish-sale-button-container {
+        margin-top: 1.5rem; /* Espacio entre el contenido de la venta y el botón */
+        text-align: center; /* Centrar el botón */
+        padding-top: 1.5rem; /* Padding superior para separar del borde */
+    }
+
+    .finish-sale-button:hover {
+        background-color: #218838;
+        /* Verde más oscuro al pasar el ratón */
+    }
+}
