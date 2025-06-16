@@ -1,6 +1,6 @@
 // Hook para cerrar sesion y redireccionar a la pagina de login
 import { signOut } from 'firebase/auth';
-import { auth } from '../models/firebase';
+import { auth } from '../lib/firebase';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
