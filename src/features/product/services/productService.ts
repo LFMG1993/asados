@@ -25,8 +25,12 @@ export const getProducts = async (): Promise<Product[]> => {
         id: doc.id,
         name: data.name,
         description: data.description || '',
-        // imageUrl: data.imageUrl || '',
-        variants: data.variants || [],
+        category: data.category,
+        imageUrl: data.imageUrl || '',
+        stockUnit: data.stockUnit,
+        currentStock: data.currentStock,
+        price: data.price,
+        isDivisible: data.isDivisible,
       };
     });
 

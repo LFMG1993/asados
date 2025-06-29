@@ -34,7 +34,6 @@ function App() {
             <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
               <Route path="/dashboard" element={<DashboardLayout />}>
                 <Route index element={<DashboardHome />} />
-                {/* **CAMBIO AQUÍ: Reemplaza ProductManagement con ProductTable** */}
                 <Route path="products" element={<ProductPage />} />
                 <Route path="users" element={<UserManagement />} />
                 <Route path="reports" element={<Reports />} />

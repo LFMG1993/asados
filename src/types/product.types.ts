@@ -1,17 +1,19 @@
-export interface ProductVariant {
-    name: string;
-    price: number;
-    stockConsumption: number;
-}
+// src/types/product.types.ts
 
+// Define los posibles valores para baseStockUnit
+export type BaseStockUnit = 'unidades' | 'libras' | 'porciones';
+
+// Define la interfaz Product
 export interface Product {
     id: string;
     name: string;
-    description: string;
+    description?: string; // Opcional
+    price: number;
     category: string;
-    imageUrl?: string;
-    baseStockUnit: 'unidades' | 'libras' | 'porciones';
+    imageUrl?: string;    // Opcional
+    stockUnit: BaseStockUnit; // Usamos el tipo BaseStockUnit
     currentStock: number;
-    /** Un array de las diferentes maneras en que se puede vender este producto. */
-    variants: ProductVariant[];
 }
+
+// Si tenías el tipo ProductVariant, puedes eliminarlo si ya no lo necesitas
+// export interface ProductVariant { ... }
