@@ -7,13 +7,13 @@ export type BaseStockUnit = 'unidades' | 'libras' | 'porciones';
 export interface Product {
     id: string;
     name: string;
-    description?: string; // Opcional
     price: number;
     category: string;
     imageUrl?: string;    // Opcional
     stockUnit: BaseStockUnit; // Usamos el tipo BaseStockUnit
     currentStock: number;
+    active: boolean;
+    description: string;
+    createdAt?: Date; // Opcional: Timestamp de creación
+    updatedAt?: Date; // Opcional: Timestamp de última actualización
 }
-
-// Si tenías el tipo ProductVariant, puedes eliminarlo si ya no lo necesitas
-// export interface ProductVariant { ... }
