@@ -1,9 +1,11 @@
+// src/components/layout/Sidebar.tsx
+
 import { Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { Home, ShoppingCart, Users, BarChart2 } from 'react-feather';
+// ** Importa el nuevo icono deseado desde react-feather **
+import { Home, ShoppingCart, Users, BarChart2, Truck } from 'react-feather'; // ** Importa Truck **
 
 export function Sidebar() {
-  // NavLink de react-router-dom se encargará de la clase 'active' automáticamente
   return (
     <Nav className="flex-column pt-3">
       <Nav.Item>
@@ -16,6 +18,13 @@ export function Sidebar() {
         <Nav.Link as={NavLink} to="/dashboard/products">
           <ShoppingCart className="me-2" size={18}/>
           Productos
+        </Nav.Link>
+      </Nav.Item>
+      {/* ** CAMBIO AQUÍ: Reemplaza ShoppingCart por el nuevo icono (ej. Truck) ** */}
+      <Nav.Item>
+        <Nav.Link as={NavLink} to="/dashboard/suppliers">
+          <Truck className="me-2" size={18}/> {/* ** Usa el nuevo componente de icono ** */}
+          Proveedores
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
