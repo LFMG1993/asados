@@ -10,32 +10,32 @@ export function Sidebar() {
     <Nav className="flex-column pt-3">
       <Nav.Item>
         <Nav.Link as={NavLink} to="/dashboard" end>
-          <Home className="me-2" size={18}/>
+          <Home className="me-2" size={18} />
           Dashboard
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link as={NavLink} to="/dashboard/products">
-          <ShoppingCart className="me-2" size={18}/>
+          <ShoppingCart className="me-2" size={18} />
           Productos
         </Nav.Link>
       </Nav.Item>
       {/* ** CAMBIO AQUÍ: Reemplaza ShoppingCart por el nuevo icono (ej. Truck) ** */}
       <Nav.Item>
         <Nav.Link as={NavLink} to="/dashboard/suppliers">
-          <Truck className="me-2" size={18}/> {/* ** Usa el nuevo componente de icono ** */}
+          <Truck className="me-2" size={18} /> {/* ** Usa el nuevo componente de icono ** */}
           Proveedores
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link as={NavLink} to="/dashboard/users">
-          <Users className="me-2" size={18}/>
+          <Users className="me-2" size={18} />
           Usuarios
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link as={NavLink} to="/dashboard/reports">
-          <BarChart2 className="me-2" size={18}/>
+          <BarChart2 className="me-2" size={18} />
           Reportes
         </Nav.Link>
       </Nav.Item>
